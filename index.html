@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Happy birthday Rajit!</title>
+
+	<style>
+		h1 {
+			font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		}
+		.container {
+			max-width: 1600px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.portrait {
+			width: 320px;
+		}
+		.landscape {
+			width: 760px;
+		}
+		/* Hide Play button + controls on iOS */
+		/* video::-webkit-media-controls {
+			display:none !important;
+		} */
+	</style>
+
+</head>
+
+
+<body>
+
+<div class="container">	
+
+	<h1>Happy birthday to our dearest Raj</h1>
+	<!-- <img src="assets/raj1.gif" border="0" class="landscape">
+    <video loop class="landscape"><source src="assets/raj2.mp4" type="video/mp4" /></video>
+    <video loop class="landscape"><source src="assets/raj3.mp4" type="video/mp4" /></video> -->
+	<!-- <img src="assets/raj4.gif" border="0" class="portrait"> -->
+
+	<br /><br />
+
+	<video loop class="portrait"><source src="assets/ana.mp4" type="video/mp4" /></video>
+    <video loop class="portrait"><source src="assets/charley.mp4" type="video/mp4" /></video>
+	<video loop class="portrait"><source src="assets/jing.mp4" type="video/mp4" /></video>
+	<video loop class="portrait"><source src="assets/jenny.mp4" type="video/mp4" /></video>
+	<img src="assets/rohit.gif" border="0" class="portrait">
+	<video loop class="portrait"><source src="assets/rohanneha.mp4" type="video/mp4" /></video>
+    <video loop class="portrait"><source src="assets/sam.mp4" type="video/mp4" /></video>
+    <video loop class="portrait"><source src="assets/sining.mp4" type="video/mp4" /></video>
+	<video loop class="portrait"><source src="assets/sooreen.mp4" type="video/mp4" /></video>
+	
+	<br /><br />
+
+    <video loop class="landscape"><source src="assets/dorothy.mp4" type="video/mp4" /></video>
+    <video loop class="landscape"><source src="assets/candyshop.mp4" type="video/mp4" /></video>
+	<video loop class="landscape"><source src="assets/parents.mp4" type="video/mp4" /></video>
+</div>
+
+<script type="text/javascript">
+window.onload = function() {
+ const vids = document.getElementsByTagName('video');
+
+ for (let i = 0; i < vids.length; i++) {
+   vids[i].addEventListener( 'mouseover', function(e) { 
+     vids[i].play();
+	 console.log("playing");
+   });
+
+   vids[i].addEventListener( 'mouseout', function(e) {
+     vids[i].pause();
+	 console.log("paused");
+   });
+ }
+}
+</script>
+
+</body>
+</html>

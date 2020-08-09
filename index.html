@@ -6,27 +6,67 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Happy birthday Rajit!</title>
 
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
 	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16pt;
+		}
+		p {
+			font-size: 1.2em;
+			line-height: 1.5em;
+		}
 		h1 {
-			font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			font-family:'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+			font-size: 3em;
+			font-weight: 400;
+			font-style: italic;
+			margin-bottom: 1em;
+		}
+		.header {
+			max-width: 1024px;
+			margin: 4em auto;
+		}
+		hr {
+			margin: 4em auto;
+			height: 0px;
+			border: 2px dotted #eee;
 		}
 		.container {
-			max-width: 1600px;
-			margin: 0 auto;
-			text-align: center;
+			max-width: 1350px;
+			margin: 2em auto;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-content: flex-start;
+		}
+		video {
+			flex-basis: auto;
+			align-self: center;
+			margin: 5px;
 		}
 		.portrait {
 			width: 320px;
 			max-width: 100%;
 		}
 		.landscape {
-			width: 760px;
+			width: 620px;
 			max-width: 100%;
 		}
 		/* Hide Play button + controls on iOS */
-		/* video::-webkit-media-controls {
+		video::-webkit-media-controls {
 			display:none !important;
-		} */
+		}
+		.container video, .container img {
+			opacity: 0.85;
+			transition: 0.5s;
+		}
+		.container video:hover {
+			opacity: 1;
+			transition: 0.5s;
+			cursor: pointer;
+		}
 	</style>
 
 </head>
@@ -34,27 +74,34 @@
 
 <body>
 
+
+<div class="header">
+	<h1>Happy 30th, Rajit!</h1>
+
+	<p>Dear Raj, we are all so grateful to have met you in our lives and wanted to wish you a brilliant and warm 30th birthday by paying homage to everything (your dance moves, your style, your sense of humor and many elite hats) that makes you special and unique to us &#x1F496;. We love you so much! <span style="color:#aeaeae;">&mdash;<em>Penn Fam & Fam Fam</em></span></p>
+	<img src="assets/raj1.gif" border="0" class="portrait">
+	<video loop class="portrait" preload="auto"><source src="assets/raj2.mp4" type="video/mp4" /></video>
+	<video loop class="portrait" preload="auto"><source src="assets/raj3.mp4" type="video/mp4" /></video>
+
+	<hr />
+
+	<p style="text-align:center;font-size:0.8em;color:#aeaeae;">(Hover over videos &mdash; loading may be delayed)</p>
+</div>
+		
 <div class="container">	
-
-	<h1>Happy birthday to our dearest Raj</h1>
-	<!-- <img src="assets/raj1.gif" border="0" class="landscape">
-    <video loop class="landscape" preload="auto"><source src="assets/raj2.mp4" type="video/mp4" /></video>
-    <video loop class="landscape" preload="auto"><source src="assets/raj3.mp4" type="video/mp4" /></video> -->
-	<!-- <img src="assets/raj4.gif" border="0" class="portrait"> -->
-
-	<br /><br />
 
 	<video loop class="portrait" preload="auto"><source src="assets/ana.mp4" type="video/mp4" /></video>
     <video loop class="portrait" preload="auto"><source src="assets/charley.mp4" type="video/mp4" /></video>
 	<video loop class="portrait" preload="auto"><source src="assets/jing.mp4" type="video/mp4" /></video>
 	<video loop class="portrait" preload="auto"><source src="assets/jenny.mp4" type="video/mp4" /></video>
-	<img src="assets/rohit.gif" border="0" class="portrait">
+
 	<video loop class="portrait" preload="auto"><source src="assets/rohanneha.mp4" type="video/mp4" /></video>
     <video loop class="portrait" preload="auto"><source src="assets/sam.mp4" type="video/mp4" /></video>
-    <video loop class="portrait" preload="auto"><source src="assets/sining.mp4" type="video/mp4" /></video>
+	<video loop class="portrait" preload="auto"><source src="assets/sining.mp4" type="video/mp4" /></video>
 	<video loop class="portrait" preload="auto"><source src="assets/sooreen.mp4" type="video/mp4" /></video>
-	
-	<br /><br />
+
+
+	<img src="assets/rohit.gif" border="0" class="portrait">
 
     <video loop class="landscape" preload="auto"><source src="assets/dorothy.mp4" type="video/mp4" /></video>
     <video loop class="landscape" preload="auto"><source src="assets/candyshop.mp4" type="video/mp4" /></video>
@@ -68,12 +115,10 @@ window.onload = function() {
  for (let i = 0; i < vids.length; i++) {
    vids[i].addEventListener( 'mouseover', function(e) { 
      vids[i].play();
-	 console.log("playing");
    });
 
    vids[i].addEventListener( 'mouseout', function(e) {
      vids[i].pause();
-	 console.log("paused");
    });
  }
 }

@@ -33,6 +33,9 @@
 			height: 0px;
 			border: 2px dotted #eee;
 		}
+		#content {
+			display: none;
+		}
 		.container {
 			max-width: 1350px;
 			margin: 2em auto;
@@ -54,8 +57,8 @@
 			width: 620px;
 			max-width: 100%;
 		}
-		/* Hide Play button + controls on iOS */
-		/* video::-webkit-media-controls {
+		/* Hide Play button + on iOS */
+		/* video::-webkit-media-{
 			display:none !important;
 			-webkit-appearance: none;
 		} */
@@ -91,64 +94,69 @@
 
 	<hr />
 
-	<p style="text-align:center;font-size:0.8em;color:#aeaeae;">(Hover over videos &mdash; best viewed on Chrome desktop)</p>
-
-	<progress max="100" value="0" id="progress_bar"></progress>
+	<div id="loading">
+		<p style="text-align:center;font-size:0.8em;color:#aeaeae;">Loading...</p>
+		<progress max="100" value="0" id="progress_bar"></progress>
+	</div>
 </div>
-		
-<div class="container">	
 
-	<video loop controls class="portrait" preload="auto" poster="assets/ana.jpg"><source src="assets/ana.mp4" type="video/mp4" /></video>
-    <video loop controls class="portrait" preload="auto" poster="assets/charley.jpg"><source src="assets/charley.mp4" type="video/mp4" /></video>
-	<video loop controls class="portrait" preload="auto" poster="assets/jing.jpg"><source src="assets/jing.mp4" type="video/mp4" /></video>
-	<video loop controls class="portrait" preload="auto" poster="assets/jenny.jpg"><source src="assets/jenny.mp4" type="video/mp4" /></video>
+<div id="content">
+	<p style="text-align:center;font-size:0.8em;color:#aeaeae;">(Hover over videos to view (best viewed on Chrome desktop)</p>
 
-	<video loop controls class="portrait" preload="auto" poster="assets/rohanneha.jpg"><source src="assets/rohanneha.mp4" type="video/mp4" /></video>
-    <video loop controls class="portrait" preload="auto" poster="assets/sam.jpg"><source src="assets/sam.mp4" type="video/mp4" /></video>
-	<video loop controls class="portrait" preload="auto" poster="assets/sining.jpg"><source src="assets/sining.mp4" type="video/mp4" /></video>
-	<video loop controls class="portrait" preload="auto" poster="assets/emi.jpg"><source src="assets/emi.mp4" type="video/mp4" /></video>
+	<div class="container">	
 
-	<video loop controls class="portrait" preload="auto" poster="assets/annie.jpg"><source src="assets/annie.mp4" type="video/mp4" /></video>
-	<video loop controls class="portrait" preload="auto" poster="assets/priya.jpg"><source src="assets/priya.mp4" type="video/mp4" /></video>
-	<video loop controls class="portrait" preload="auto" poster="assets/sooreen.jpg"><source src="assets/sooreen.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/ana.jpg"><source src="assets/ana.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/charley.jpg"><source src="assets/charley.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/jing.jpg"><source src="assets/jing.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/jenny.jpg"><source src="assets/jenny.mp4" type="video/mp4" /></video>
+
+		<video loop playsinline class="portrait" preload="auto" poster="assets/rohanneha.jpg"><source src="assets/rohanneha.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/sam.jpg"><source src="assets/sam.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/sining.jpg"><source src="assets/sining.mp4" type="video/mp4" /></video>
+
+		<video loop playsinline class="portrait" preload="auto" poster="assets/annie.jpg"><source src="assets/annie.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/priya.jpg"><source src="assets/priya.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/sooreen.jpg"><source src="assets/sooreen.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="portrait" preload="auto" poster="assets/dorothy.jpg"><source src="assets/dorothy.mp4" type="video/mp4" /></video>
 
 
-	<img src="assets/rohit.gif" border="0" class="portrait">
+		<img src="assets/rohit.gif" border="0" class="portrait">
 
-    <video loop controls class="landscape" preload="auto" poster="assets/dorothy.jpg"><source src="assets/dorothy.mp4" type="video/mp4" /></video>
-    <video loop controls class="landscape" preload="auto" poster="assets/candyshop.jpg"><source src="assets/candyshop.mp4" type="video/mp4" /></video>
-	<video loop controls class="landscape" preload="auto" poster="assets/parents.jpg"><source src="assets/parents.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="landscape" preload="auto" poster="assets/ariel.jpg"><source src="assets/ariel.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="landscape" preload="auto" poster="assets/candyshop.jpg"><source src="assets/candyshop.mp4" type="video/mp4" /></video>
+		<video loop playsinline class="landscape" preload="auto" poster="assets/parents.jpg"><source src="assets/parents.mp4" type="video/mp4" /></video>
+	</div>
 </div>
 
 <script type="text/javascript">
 window.onload = function() {
 	stepProgress();
 
- const vids = document.getElementsByTagName('video');
+	const vids = document.getElementsByTagName('video');
 
- for (let i = 0; i < vids.length; i++) {
-   vids[i].addEventListener( 'mouseover', function(e) {
-		console.log("playing");
-     	vids[i].play();
-   });
+	for (let i = 0; i < vids.length; i++) {
+	vids[i].addEventListener( 'mouseover', function(e) {
+			console.log("playing");
+			vids[i].play();
+	});
 
-   vids[i].addEventListener( 'mouseout', function(e) {
-	   console.log("pausing");
-     	vids[i].pause();
-   });
+	vids[i].addEventListener( 'mouseout', function(e) {
+		console.log("pausing");
+			vids[i].pause();
+	});
  }
 }
 
 var progress_element = document.getElementById('progress_bar');
 
 function stepProgress() {
-	console.log(progress_element.value);
 	progress_element.value += 1;
 	if(progress_element.value < 100) {
 		setTimeout(stepProgress, 100);
 	}
 	else {
-		progress_element.style.display = "none";
+		document.getElementById('loading').style.display = "none";
+		document.getElementById('content').style.display = "block";
 	}
 };
 
